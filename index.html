@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMEA Pipeline Scorecard — QBR Q2 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #FAFAF7; color: #2C2C2A; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; font-size: 14px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 48px; }
+  h1 { font-size: 26px; font-weight: 500; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h1 .sub { font-size: 13px; color: #5F5E5A; font-weight: 400; display: block; margin-top: 4px; }
+  .tldr { background: #E6F1FB; border-left: 4px solid #185FA5; padding: 18px 22px; border-radius: 6px; margin: 24px 0; }
+  .tldr-lbl { font-size: 10px; color: #185FA5; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 8px; }
+  .tldr p { font-size: 15px; line-height: 1.6; margin: 0; }
+  .tldr b { font-weight: 600; color: #0C447C; }
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 16px; }
+  .summary > div { background: #F1EFE8; border-radius: 8px; padding: 14px 16px; }
+  .summary .lbl { font-size: 11px; color: #5F5E5A; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 4px; }
+  .summary .num { font-size: 22px; font-weight: 500; margin: 0; }
+  .legend { background: #F1EFE8; padding: 12px 14px; border-radius: 8px; font-size: 11px; color: #5F5E5A; margin: 0 0 24px; }
+  .legend-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 4px; }
+  .legend-row:last-child { margin-bottom: 0; }
+  .legend-row .lbl { font-weight: 600; color: #2C2C2A; min-width: 100px; }
+  .legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+  .legend > .legend-row > span { display: inline-flex; align-items: center; }
+  .region { margin-bottom: 32px; }
+  .region-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-bottom: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .region-head h3 { font-size: 18px; font-weight: 500; margin: 0; }
+  .region-head .ct { font-size: 12px; color: #5F5E5A; }
+  .region-head .avg { font-size: 12px; color: #5F5E5A; font-style: italic; }
+  .region-head .tot { font-size: 12px; color: #5F5E5A; margin-left: auto; }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 14px 16px; }
+  .pill { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 6px; font-weight: 500; margin: 0 4px 8px 0; }
+  .pill.green { background: #E1F5EE; color: #0F6E56; }
+  .pill.amber { background: #FAEEDA; color: #854F0B; }
+  .pill.red   { background: #FCEBEB; color: #A32D2D; }
+  .pill.gray  { background: #F1EFE8; color: #5F5E5A; }
+  .name { font-size: 15px; font-weight: 500; margin: 0; }
+  .role { font-size: 11px; color: #5F5E5A; margin: 2px 0 0; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin: 12px 0 8px; }
+  .stats > div { display: flex; flex-direction: column; }
+  .stats .v { font-size: 14px; font-weight: 500; }
+  .stats .v.red { color: #A32D2D; }
+  .stats .v.green { color: #0F6E56; }
+  .stats .l { font-size: 10px; color: #5F5E5A; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .arr-up { color: #1D9E75; font-weight: 600; margin-left: 4px; }
+  .arr-dn { color: #E24B4A; font-weight: 600; margin-left: 4px; }
+  .strip { margin: 6px 0 4px; }
+  .strip-label { font-size: 9px; color: #5F5E5A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+  .bar { display: flex; height: 16px; border-radius: 3px; overflow: hidden; background: #F1EFE8; }
+  .seg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; min-width: 0; }
+  .seg.fresh { background: #1D9E75; color: #FFFFFF; }
+  .seg.warm  { background: #BA7517; color: #FFFFFF; }
+  .seg.stale { background: #D85A30; color: #FFFFFF; }
+  .seg.dead  { background: #A32D2D; color: #FFFFFF; }
+  .seg.s1 { background: #85B7EB; color: #042C53; }
+  .seg.s2 { background: #378ADD; color: #FFFFFF; }
+  .seg.s3 { background: #185FA5; color: #FFFFFF; }
+  .seg.s4 { background: #0C447C; color: #FFFFFF; }
+  .seg.s5 { background: #042C53; color: #FFFFFF; }
+  .note { font-size: 12px; color: #5F5E5A; line-height: 1.5; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); margin-top: 6px; }
+  .sm-tag { font-size: 9px; padding: 1px 5px; border-radius: 3px; background: #E6F1FB; color: #185FA5; font-weight: 600; letter-spacing: 0.04em; margin-left: 4px; vertical-align: 2px; }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 11px; color: #888780; line-height: 1.6; }
+  @media (max-width: 760px) {
+    .summary { grid-template-columns: repeat(2, 1fr); }
+    .cards { grid-template-columns: 1fr; }
+    .region-head .tot { margin-left: 0; flex-basis: 100%; }
+  }
+  @media print {
+    body { background: #FFFFFF; }
+    .card, .summary > div { break-inside: avoid; }
+    .region { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>EMEA AE &amp; SM Pipeline Scorecard<span class="sub">QBR Q2 2026 · Cory Lawing, Revenue Operations · Data as of May 11, 2026</span></h1>
+
+<div class="tldr">
+  <div class="tldr-lbl">For Sales Directors — the one line</div>
+  <p>EMEA has <b>closed €979K YTD</b> across 117 wins — but <b>73% of our €7.5M open pipeline is stalled</b>, meaning real H2-workable pipe is closer to <b>€2M, not €7.5M</b>. The QBR conversation isn't who's closing; it's whether we triage the <b>€5M of stale inventory</b> or accept a much lower forecast.</p>
+</div>
+
+<div class="summary">
+  <div><p class="lbl">Sellers</p><p class="num">28</p></div>
+  <div><p class="lbl">Closed won YTD</p><p class="num">€979K</p></div>
+  <div><p class="lbl">Open pipe</p><p class="num">€7.5M (1,005)</p></div>
+  <div><p class="lbl">Open NP stalled</p><p class="num">73%</p></div>
+</div>
+
+<div class="legend">
+  <div class="legend-row">
+    <span class="lbl">Closed won</span>
+    <span><span class="arr-up">▲</span> Above sales area avg</span>
+    <span><span class="arr-dn">▼</span> Below sales area avg</span>
+    <span style="color:#888;">Solo regions (Nordnet, Turkey) have no comparison cohort.</span>
+  </div>
+  <div class="legend-row">
+    <span class="lbl">Pipe aging</span>
+    <span><span class="swatch" style="background: #1D9E75;"></span>Fresh 0–30d</span>
+    <span><span class="swatch" style="background: #BA7517;"></span>Warming 30–60d</span>
+    <span><span class="swatch" style="background: #D85A30;"></span>Stale 60–90d</span>
+    <span><span class="swatch" style="background: #A32D2D;"></span>Dead 90d+</span>
+  </div>
+  <div class="legend-row">
+    <span class="lbl">Pipe by stage</span>
+    <span><span class="swatch" style="background: #85B7EB;"></span>Consult</span>
+    <span><span class="swatch" style="background: #378ADD;"></span>Discover</span>
+    <span><span class="swatch" style="background: #185FA5;"></span>Close</span>
+    <span><span class="swatch" style="background: #0C447C;"></span>OF Sent</span>
+    <span><span class="swatch" style="background: #042C53;"></span>OF Viewed</span>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>DACH</h3><span class="ct">6 sellers</span><span class="avg">avg €57K</span><span class="tot">€339K won · €1.24M open (59 opps) · 17% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span>
+      <p class="name">Sascha Derichs</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€111K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€232K (7 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">6</span><span class="l">NP moving</span></div>
+        <div><span class="v">1</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 1;"></div><div class="seg dead" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 5;">5</div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 1;"></div></div></div>
+      <div class="note">Top closer in EMEA. 100% of 2026 wins logged within 7d of close — coachable hygiene issue.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing strong · clean pipe</span>
+      <p class="name">Marius Gleitze</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€87K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€110K (6 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">5</span><span class="l">NP moving</span></div>
+        <div><span class="v">0</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg warm" style="flex: 5;">5</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 3;">3</div><div class="seg s2" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">Zero stalled deals. Cleanest book in DACH.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing strong</span>
+      <p class="name">Samuel Derksen</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€55K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€226K (10 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">4</span><span class="l">NP moving</span></div>
+        <div><span class="v">4</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 6;">6</div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 6;">6</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">Half of NP pipe stalled — worth a stuck-deal review.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing strong</span>
+      <p class="name">Maximilian Rother</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€54K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€199K (12 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">8</span><span class="l">NP moving</span></div>
+        <div><span class="v">2</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 3;">3</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 5;">5</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">Healthiest pipe in DACH — full funnel, no dead deals.</div>
+    </div>
+    <div class="card">
+      <span class="pill amber">Building pipe</span>
+      <p class="name">Philipp Reimann</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€24K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€471K (24 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">12</span><span class="l">NP moving</span></div>
+        <div><span class="v">0</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 24;">24</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 21;">21</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="note">€471K in moving NP pipe but only 2 wins. Pipe is fresh — give it time to mature.</div>
+    </div>
+    <div class="card">
+      <span class="pill gray">Wrapping up</span>
+      <p class="name">Coralie Longueville</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€8K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€0K (0 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">0</span><span class="l">NP moving</span></div>
+        <div><span class="v">0</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"></div></div>
+      <div class="note">No open pipeline. Confirm role / transition.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>UKI</h3><span class="ct">5 sellers</span><span class="avg">avg €20K</span><span class="tot">€98K won · €1.81M open (180 opps) · 83% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Lisa Clay</p><p class="role">AE · UKI</p>
+      <div class="stats">
+        <div><span class="v">€47K · 8W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€563K (52 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">6</span><span class="l">NP moving</span></div>
+        <div><span class="v red">41</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 10;">10</div><div class="seg dead" style="flex: 35;">35</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 16;">16</div><div class="seg s2" style="flex: 27;">27</div><div class="seg s3" style="flex: 9;">9</div></div></div>
+      <div class="note">Top UKI closer but 67% of pipe is dead. Stage labels say Discover/Close, aging says frozen — labels are fiction.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Millicent Groves</p><p class="role">AE · UKI</p>
+      <div class="stats">
+        <div><span class="v">€39K · 1W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€311K (33 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">0</span><span class="l">NP moving</span></div>
+        <div><span class="v red">16</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg dead" style="flex: 32;">32</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 28;">28</div><div class="seg s3" style="flex: 3;">3</div></div></div>
+      <div class="note">100% of NP pipeline stalled. 28 opps sit in Discover but none have moved in 90+ days.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Jessica Henderson</p><p class="role">AE · UKI</p>
+      <div class="stats">
+        <div><span class="v">€8K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€358K (35 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">8</span><span class="l">NP moving</span></div>
+        <div><span class="v red">20</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 24;">24</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 22;">22</div><div class="seg s2" style="flex: 11;">11</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="note">€358K of NP pipe stalled. 22 opps in Consult — early funnel that has aged.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Rachael Penney</p><p class="role">AE · UKI</p>
+      <div class="stats">
+        <div><span class="v">€4K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€469K (57 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">10</span><span class="l">NP moving</span></div>
+        <div><span class="v red">37</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 11;">11</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 16;">16</div><div class="seg dead" style="flex: 24;">24</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 6;">6</div><div class="seg s2" style="flex: 27;">27</div><div class="seg s3" style="flex: 15;">15</div><div class="seg s4" style="flex: 6;">6</div><div class="seg s5" style="flex: 3;">3</div></div></div>
+      <div class="note">Largest stalled book in EMEA. 24 opps marked Discover/Close haven't moved in 90+ days.</div>
+    </div>
+    <div class="card">
+      <span class="pill gray">No signal</span>
+      <p class="name">Sally Jeavons</p><p class="role">AE · UKI</p>
+      <div class="stats">
+        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€110K (3 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">0</span><span class="l">NP moving</span></div>
+        <div><span class="v">2</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg dead" style="flex: 3;">3</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 1;"></div></div></div>
+      <div class="note">Tiny stalled book. Confirm role / ramp status.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>FRABEL</h3><span class="ct">7 sellers (2 SM)</span><span class="avg">avg €24K</span><span class="tot">€167K won · €1.86M open (270 opps) · 82% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span>
+      <p class="name">Thibault Fosset <span class="sm-tag">SM</span></p><p class="role">SM · FRABEL South</p>
+      <div class="stats">
+        <div><span class="v">€56K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€8K (1 opp)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">1</span><span class="l">NP moving</span></div>
+        <div><span class="v">0</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s2" style="flex: 1;"></div></div></div>
+      <div class="note">100% of 2026 wins logged within 7d of close. Minimal carry-pipe.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Laure Thery <span class="sm-tag">SM</span></p><p class="role">SM · FRABEL North</p>
+      <div class="stats">
+        <div><span class="v">€46K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€345K (45 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">7</span><span class="l">NP moving</span></div>
+        <div><span class="v red">37</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 4;">4</div><div class="seg warm" style="flex: 3;">3</div><div class="seg dead" style="flex: 38;">38</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 12;">12</div><div class="seg s3" style="flex: 5;">5</div></div></div>
+      <div class="note">Closing real revenue but 84% of NP pipe is dead. 28 of those dead opps sit in Consult.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Vianney Elie</p><p class="role">AE · FRABEL South</p>
+      <div class="stats">
+        <div><span class="v">€36K · 2W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€344K (53 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">6</span><span class="l">NP moving</span></div>
+        <div><span class="v red">47</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 4;">4</div><div class="seg dead" style="flex: 43;">43</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 22;">22</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">89% dead. 28 in Consult, 22 in Discover — pipe is frozen across stages.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Chloe Espejo</p><p class="role">AE · FRABEL North</p>
+      <div class="stats">
+        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€349K (54 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">9</span><span class="l">NP moving</span></div>
+        <div><span class="v red">43</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 8;">8</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 43;">43</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 24;">24</div><div class="seg s2" style="flex: 24;">24</div><div class="seg s3" style="flex: 6;">6</div></div></div>
+      <div class="note">Almost all pipe in Consult/Discover and 80% dead. Needs systematic cleanup.</div>
+    </div>
+    <div class="card">
+      <span class="pill gray">Data event</span>
+      <p class="name">Thanh Dinh Tran</p><p class="role">AE · FRABEL North</p>
+      <div class="stats">
+        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€318K (43 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">10</span><span class="l">NP moving</span></div>
+        <div><span class="v red">33</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 3;">3</div><div class="seg warm" style="flex: 7;">7</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 28;">28</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 25;">25</div><div class="seg s3" style="flex: 1;"></div></div></div>
+      <div class="note">Bulk-loaded Jan opps. Audit before any verdict.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Edouard Lehu</p><p class="role">AE · FRABEL North</p>
+      <div class="stats">
+        <div><span class="v">€5K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€252K (42 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">10</span><span class="l">NP moving</span></div>
+        <div><span class="v red">31</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 8;">8</div><div class="seg dead" style="flex: 23;">23</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 27;">27</div><div class="seg s2" style="flex: 14;">14</div><div class="seg s3" style="flex: 1;"></div></div></div>
+      <div class="note">27 opps still in Consult after months. Slow start on closing.</div>
+    </div>
+    <div class="card">
+      <span class="pill gray">Pre-revenue</span>
+      <p class="name">Mathilde Sempéré</p><p class="role">AE · FRABEL South</p>
+      <div class="stats">
+        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€240K (32 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">2</span><span class="l">NP moving</span></div>
+        <div><span class="v red">14</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 2;">2</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 27;">27</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 11;">11</div><div class="seg s2" style="flex: 17;">17</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">No wins yet. Confirm ramp status.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>Mediterranean</h3><span class="ct">5 sellers</span><span class="avg">avg €27K</span><span class="tot">€135K won · €1.01M open (253 opps) · 70% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Stefania Del Valle</p><p class="role">AE · Mediterranean</p>
+      <div class="stats">
+        <div><span class="v">€43K · 12W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€115K (35 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">5</span><span class="l">NP moving</span></div>
+        <div><span class="v red">23</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 10;">10</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 22;">22</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 9;">9</div></div></div>
+      <div class="note">Most wins in EMEA but 63% of pipe is dead. Clean up before adding more.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Borja Sentis</p><p class="role">AE · Mediterranean</p>
+      <div class="stats">
+        <div><span class="v">€29K · 9W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€128K (31 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">9</span><span class="l">NP moving</span></div>
+        <div><span class="v red">21</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 3;">3</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 18;">18</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 18;">18</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 4;">4</div></div></div>
+      <div class="note">Healthy closing rhythm but 58% of pipe dead. Quarterly review needed.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Massimiliano Viotti</p><p class="role">AE · Italy</p>
+      <div class="stats">
+        <div><span class="v">€28K · 7W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€199K (42 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">8</span><span class="l">NP moving</span></div>
+        <div><span class="v red">33</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 2;">2</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 29;">29</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 27;">27</div><div class="seg s2" style="flex: 10;">10</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 2;">2</div></div></div>
+      <div class="note">69% dead. 27 in Consult — bulk of pipe in early stage and aged.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Alessandro Schillaci</p><p class="role">AE · Italy</p>
+      <div class="stats">
+        <div><span class="v">€22K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€422K (110 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">28</span><span class="l">NP moving</span></div>
+        <div><span class="v red">72</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 9;">9</div><div class="seg warm" style="flex: 26;">26</div><div class="seg stale" style="flex: 6;">6</div><div class="seg dead" style="flex: 69;">69</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 61;">61</div><div class="seg s2" style="flex: 35;">35</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s4" style="flex: 5;">5</div><div class="seg s5" style="flex: 7;">7</div></div></div>
+      <div class="note">Largest stalled book in EMEA: 69 dead, 61 in Consult — Italy needs structured triage.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill amber">Logging late</span>
+      <p class="name">Guillermo Pinet</p><p class="role">AE · Mediterranean</p>
+      <div class="stats">
+        <div><span class="v">€13K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€143K (35 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">20</span><span class="l">NP moving</span></div>
+        <div><span class="v red">11</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 12;">12</div><div class="seg warm" style="flex: 8;">8</div><div class="seg stale" style="flex: 12;">12</div><div class="seg dead" style="flex: 3;">3</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 16;">16</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="note">Healthiest aging in Mediterranean. 75% of 2026 wins logged within 7d of close.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>CEE</h3><span class="ct">3 sellers (1 SM)</span><span class="avg">avg €37K</span><span class="tot">€110K won · €1.00M open (168 opps) · 86% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Jakub Orłów <span class="sm-tag">SM</span></p><p class="role">SM · Expansion</p>
+      <div class="stats">
+        <div><span class="v">€68K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€262K (54 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">0</span><span class="l">NP moving</span></div>
+        <div><span class="v red">42</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 53;">53</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 20;">20</div><div class="seg s3" style="flex: 25;">25</div></div></div>
+      <div class="note">25 opps marked Close, 20 Discover — but 98% haven't moved in 90+ days. Stage labels are fiction.</div>
+    </div>
+    <div class="card">
+      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Martin Polák</p><p class="role">AE · CEE</p>
+      <div class="stats">
+        <div><span class="v">€27K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€453K (59 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">4</span><span class="l">NP moving</span></div>
+        <div><span class="v red">55</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 4;">4</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 54;">54</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 25;">25</div><div class="seg s2" style="flex: 21;">21</div><div class="seg s3" style="flex: 13;">13</div></div></div>
+      <div class="note">93% dead. 25 in Consult, 13 in Close — book frozen across funnel.</div>
+    </div>
+    <div class="card">
+      <span class="pill red">Stalled pipe</span>
+      <p class="name">Damian Stachowiak</p><p class="role">AE · CEE</p>
+      <div class="stats">
+        <div><span class="v">€15K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€286K (55 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">17</span><span class="l">NP moving</span></div>
+        <div><span class="v red">36</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 19;">19</div><div class="seg stale" style="flex: 29;">29</div><div class="seg dead" style="flex: 7;">7</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 31;">31</div><div class="seg s2" style="flex: 7;">7</div><div class="seg s3" style="flex: 17;">17</div></div></div>
+      <div class="note">Different shape — pipe ages into 30-90d window rather than 90+. Coachable.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>Nordnet</h3><span class="ct">1 seller · solo region</span><span class="tot">€51K won · €365K open (40 opps) · 78% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing strong</span><span class="pill red">Stalled pipe</span>
+      <p class="name">Raimond Ghurahoo</p><p class="role">AE · Nordnet</p>
+      <div class="stats">
+        <div><span class="v">€51K · 7W</span><span class="l">Closed won</span></div>
+        <div><span class="v">€365K (40 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">9</span><span class="l">NP moving</span></div>
+        <div><span class="v red">31</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 4;">4</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 28;">28</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 18;">18</div><div class="seg s2" style="flex: 12;">12</div><div class="seg s3" style="flex: 9;">9</div><div class="seg s4" style="flex: 1;"></div></div></div>
+      <div class="note">70% dead. 18 opps still in Consult after months. Solo region — needs triage support.</div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head"><h3>Turkey</h3><span class="ct">1 seller · solo region</span><span class="tot">€80K won · €207K open (35 opps) · 12% NP stalled</span></div>
+  <div class="cards">
+    <div class="card">
+      <span class="pill green">Closing strong · clean pipe</span><span class="pill amber">Logging late</span>
+      <p class="name">Yusuf Ozinan</p><p class="role">AE · Turkey</p>
+      <div class="stats">
+        <div><span class="v">€80K · 9W</span><span class="l">Closed won</span></div>
+        <div><span class="v">€207K (35 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v green">15</span><span class="l">NP moving</span></div>
+        <div><span class="v">2</span><span class="l">NP stalled</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 27;">27</div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 32;">32</div><div class="seg s3" style="flex: 1;"></div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="note">Cleanest book in EMEA. Pipe concentrated in Discover (32 opps) and mostly fresh.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Source: Salesforce, May 11, 2026. 1,688 opportunities across 28 active EMEA AE/SM. Currency converted to EUR at mid-market rates (not finance-grade).
+  <br><br>
+  <b>Aging</b> = days since last stage change on open opportunities. Reference: 90% of NP wins close in under 35 days. <b>Stage</b> bar shows Consult (entry funnel) → Discover (validation) → Close (negotiation) → Order Form Sent → Order Form Viewed. Initial Contact (1 deal) folded into Consult; 91-99% (1 deal) folded into Close. <b>Late-logging</b> = 70%+ of seller's 2026-created NP wins closed within 7 days of opportunity creation.
+</footer>
+
+</div>
+</body>
+</html>
