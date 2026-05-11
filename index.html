@@ -81,9 +81,16 @@
     .card, .summary > div, .analysis { break-inside: avoid; }
     .region { break-inside: avoid; }
   }
+
+.nav { display: flex; gap: 6px; margin: 0 0 16px; flex-wrap: wrap; }
+.nav a, .nav span.active { display: inline-block; padding: 7px 12px; font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 5px; border: 1px solid #e1e4eb; background: #fff; color: #1a1d2e; transition: all 0.15s; letter-spacing: 0.02em; }
+.nav a:hover { background: #f0f5ff; border-color: #3b82f6; color: #1e40af; }
+.nav span.active { background: #1a1d2e; color: #fff; border-color: #1a1d2e; cursor: default; }
+.nav .sep { color: #c0c4d0; padding: 7px 0; font-size: 12px; }
 </style>
 </head>
 <body>
+<div class="nav"><span class="active">EMEA Pipeline</span><a href="event-attribution-emea-q2-2026.html">EMEA Events</a><span class="sep">·</span><a href="americas-scorecard-q2-2026.html">AMERICAS Pipeline</a><a href="event-attribution-americas-q2-2026.html">AMERICAS Events</a></div>
 <div class="container">
 
 <h1>EMEA AE &amp; SM Pipeline Scorecard<span class="sub">QBR Q2 2026 · Cory Lawing, Revenue Operations · Data as of May 11, 2026 · Acquisition = New Practice + Reactivate Practice</span></h1>
@@ -125,93 +132,108 @@
 </div>
 
 <div class="region">
-  <div class="region-head"><h3>DACH</h3><span class="ct">6 sellers</span><span class="avg">avg €57K</span><span class="tot">€339K won · €1.24M open (59 opps) · 17% Acq stalled</span></div>
+  <div class="region-head"><h3>DACH</h3><span class="ct">7 sellers</span><span class="avg">avg €57K</span><span class="tot">€339K won · €1.24M open (59 opps) · 17% Acq stalled</span></div>
   <div class="cards">
     <div class="card">
       <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span>
       <p class="name">Sascha Derichs</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€111K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€111K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€232K (7 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">6</span><span class="l">Acq moving</span></div>
         <div><span class="v">1 (14%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">1d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">1d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">63%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 1;"></div><div class="seg dead" style="flex: 1;"></div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 5;">5</div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 1;"></div></div></div>
-      <div class="note">100% CW with 1-day avg cycle = opps logged at the close moment. Top closer but funnel discipline absent.</div>
+      <div class="note">63% CW is the highest in the team but 1-day cycle means deals are logged at close. The number reflects logging behavior, not selling.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing strong · clean pipe</span>
       <p class="name">Marius Gleitze</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€87K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€87K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€110K (6 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">5</span><span class="l">Acq moving</span></div>
         <div><span class="v">0 (0%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">49d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">86%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">42d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">24%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg warm" style="flex: 5;">5</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 3;">3</div><div class="seg s2" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">49d cycle, 86% CW — most credible selling motion in DACH.</div>
+      <div class="note">42d cycle, 24% CW. Plausible numbers, zero stalled.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing strong</span>
       <p class="name">Samuel Derksen</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€55K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€55K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€226K (10 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">4</span><span class="l">Acq moving</span></div>
         <div><span class="v">4 (50%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">34d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">50%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">47d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">37%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 6;">6</div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 2;">2</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 6;">6</div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">34d cycle, 50% CW — plausible velocity. Half of Acq pipe stalled.</div>
+      <div class="note">47d cycle, 37% CW — one of the strongest credible profiles in DACH.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing strong</span>
       <p class="name">Maximilian Rother</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€54K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€54K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€199K (12 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">8</span><span class="l">Acq moving</span></div>
         <div><span class="v">2 (20%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">8d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">57%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">15d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">59%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 3;">3</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 5;">5</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">8d cycle, 57% CW — full funnel discipline. The DACH control sample.</div>
+      <div class="note">15d cycle, 59% CW — best discipline benchmark in DACH. Real selling, fast cycle.</div>
     </div>
     <div class="card">
       <span class="pill amber">Building pipe</span>
       <p class="name">Philipp Reimann</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€24K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€24K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€471K (24 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">12</span><span class="l">Acq moving</span></div>
         <div><span class="v">0 (0%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">0d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">67%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">0d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">5%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 24;">24</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 21;">21</div><div class="seg s3" style="flex: 2;">2</div></div></div>
-      <div class="note">0d cycle on small sample — wins logged at close. €471K of fresh pipe to mature.</div>
+      <div class="note">5% CW reflects big open book, few wins yet. €471K of fresh moving pipe.</div>
+    </div>
+    <div class="card">
+      <span class="pill gray">Returning</span>
+      <p class="name">Christian Dymek</p><p class="role">AE · DACH</p>
+      <div class="stats">
+        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
+        <div><span class="v">€0K (0 opps)</span><span class="l">Open pipe</span></div>
+        <div><span class="v">0</span><span class="l">Acq moving</span></div>
+        <div><span class="v">0 (0%)</span><span class="l">Acq stalled</span></div>
+        <div><span class="v">63d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">39%</span><span class="l">Close-won rate</span></div>
+      </div>
+      <div class="strip"><div class="strip-label">By aging</div><div class="bar"></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"></div></div>
+      <div class="note">9 wins, 39% CW in 2025 but zero 2026 activity. Confirm territory / role status.</div>
     </div>
     <div class="card">
       <span class="pill gray">Wrapping up</span>
       <p class="name">Coralie Longueville</p><p class="role">AE · DACH</p>
       <div class="stats">
-        <div><span class="v">€8K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€8K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€0K (0 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">0</span><span class="l">Acq moving</span></div>
         <div><span class="v">0 (0%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">18d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">18d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">17%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"></div></div>
@@ -220,8 +242,8 @@
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Best-performing region in EMEA on revenue. The opportunity here is discipline, not output.</p>
-    <ul><li><b>Lock funnel discipline with Sascha and Marius.</b> Both are top closers but Sascha logs opps the day they close. Marius's 49d cycle is what good looks like — coach Sascha toward that pattern, don't break what's working.</li><li><b>Samuel's 4 stalled NP is a coachable opportunity.</b> 50% of his Acq pipe is stalled despite a healthy 34d/50% CW profile. A stuck-deal review in 1:1 should clear most of it.</li><li><b>Philipp Reimann is your H2 bet.</b> €471K of fresh moving pipe, 0 stalled, 12 NP opps progressing. Don't measure him on closed won this quarter — measure pipe-to-stage conversion.</li><li><b>Confirm Coralie's role.</b> Zero open pipe, one win YTD. Either she's transitioning or the territory needs reassignment.</li></ul>
+    <p class="analysis-head">Best-performing region in EMEA on revenue. The credible top performers are Maximilian and Samuel.</p>
+    <ul><li><b>Maximilian and Samuel are the EMEA discipline benchmarks.</b> 59% and 37% CW with healthy cycle times — real selling, clean funnels. Use them as the standard for the org.</li><li><b>Sascha's 63% CW is a logging artifact.</b> 12 wins all logged within 1 day of close. The high CW reflects his backwards-looking funnel discipline, not better selling. RevOps should require opp creation at first qualified meeting, audited weekly.</li><li><b>Samuel's stalled book is the easy win.</b> 37% CW with only 4 stalled deals is the cleanest setup for stuck-deal triage in DACH.</li><li><b>Philipp Reimann is the H2 bet.</b> €471K of fresh moving pipe, 0 stalled. Measure him on pipe-to-stage conversion rather than closed won this quarter.</li><li><b>Christian Dymek needs investigation.</b> 9 wins in 2025, zero 2026. Either returning, reassigned, or off the team. Confirm before QBR.</li><li><b>Confirm Coralie's role.</b> Likely transitioning — minimal closures across 2 years and no open pipe.</li></ul>
   </div>
 </div>
 
@@ -232,82 +254,82 @@
       <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
       <p class="name">Lisa Clay</p><p class="role">AE · UKI</p>
       <div class="stats">
-        <div><span class="v">€47K · 8W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€47K · 8W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€563K (52 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">6</span><span class="l">Acq moving</span></div>
         <div><span class="v red">41 (87%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">15d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">80%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">32d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">20%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 10;">10</div><div class="seg dead" style="flex: 35;">35</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 16;">16</div><div class="seg s2" style="flex: 27;">27</div><div class="seg s3" style="flex: 9;">9</div></div></div>
-      <div class="note">15d cycle, 80% CW — credible selling. But 87% of Acq pipe stalled. Two parallel realities.</div>
+      <div class="note">32d cycle, 20% CW — strongest credible profile in UKI. But 87% of Acq pipe stalled is the urgent issue.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Millicent Groves</p><p class="role">AE · UKI</p>
       <div class="stats">
-        <div><span class="v">€39K · 1W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€39K · 1W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€311K (33 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">0</span><span class="l">Acq moving</span></div>
         <div><span class="v red">16 (100%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">95d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">34d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">8%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg dead" style="flex: 32;">32</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 2;">2</div><div class="seg s2" style="flex: 28;">28</div><div class="seg s3" style="flex: 3;">3</div></div></div>
-      <div class="note">100% Acq stalled. The 1 win came outside acquisition motion.</div>
+      <div class="note">34d cycle, 8% CW. 100% Acq stalled.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Jessica Henderson</p><p class="role">AE · UKI</p>
       <div class="stats">
-        <div><span class="v">€8K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€8K · 2W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€358K (35 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">8</span><span class="l">Acq moving</span></div>
         <div><span class="v red">21 (72%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">56d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">29%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">35d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">10%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 24;">24</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 22;">22</div><div class="seg s2" style="flex: 11;">11</div><div class="seg s3" style="flex: 2;">2</div></div></div>
-      <div class="note">29% CW — lowest credible rate in UKI. 5 active losses signal qualification problem.</div>
+      <div class="note">35d cycle, 10% CW. Real qualification challenge — losses outpace wins 5:1 across 2 years.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Rachael Penney</p><p class="role">AE · UKI</p>
       <div class="stats">
-        <div><span class="v">€4K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€4K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€469K (57 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">10</span><span class="l">Acq moving</span></div>
         <div><span class="v red">37 (79%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">7d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">57d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">19%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 11;">11</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 16;">16</div><div class="seg dead" style="flex: 24;">24</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 6;">6</div><div class="seg s2" style="flex: 27;">27</div><div class="seg s3" style="flex: 15;">15</div><div class="seg s4" style="flex: 6;">6</div><div class="seg s5" style="flex: 3;">3</div></div></div>
-      <div class="note">100% CW from 1 win is meaningless. €469K of stalled pipe is the actual story.</div>
+      <div class="note">57d cycle, 19% CW. €469K of stalled pipe is the story — recent 2025 wins suggest she can sell, but pipe is frozen.</div>
     </div>
     <div class="card">
-      <span class="pill gray">No signal</span>
+      <span class="pill green">Closing well</span>
       <p class="name">Sally Jeavons</p><p class="role">AE · UKI</p>
       <div class="stats">
-        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€110K (3 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">0</span><span class="l">Acq moving</span></div>
         <div><span class="v">2 (100%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">—</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">—</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">36d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">41%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg dead" style="flex: 3;">3</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 1;"></div><div class="seg s3" style="flex: 1;"></div></div></div>
-      <div class="note">No closures yet. Confirm role / ramp status.</div>
+      <div class="note">36d cycle, 41% CW from 13 wins in 2025. No 2026 closures yet — surprising drop. Investigate.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Highest stalled pipe ratio in EMEA. The region's not failing to close — it's failing to qualify or kill.</p>
-    <ul><li><b>Run a forced stalled-pipe review across all 5 reps.</b> €1.8M open, 83% of NP stalled. Each rep should bring every 60d+ deal to a 1:1 with advance-or-close-lost decision required. Expect €600K+ to wash out as close-lost.</li><li><b>Lisa Clay is the asset to protect.</b> 15d / 80% CW is real selling. Her stalled book is inherited or under-prioritized, not a skill gap. Give her air-cover to clean up rather than push for new wins.</li><li><b>Jessica's 29% CW is the qualification flag.</b> 5 active losses + 21 stalled at €358K. Her deals reach decision and lose more often than peers. Targeted MEDDIC/qualification coaching.</li><li><b>Investigate Rachael's book.</b> €469K stalled and 1 win all year. Either bad territory assignment, qualification breakdown, or she's working the wrong deals. Diagnose before deciding direction.</li><li><b>Confirm Sally's role status.</b> 3 opps total YTD. Either she's brand new or this isn't a quota-carrying seat.</li></ul>
+    <p class="analysis-head">Highest stalled pipe ratio in EMEA. The region isn't failing to close — it's failing to qualify or kill.</p>
+    <ul><li><b>Run a forced stalled-pipe review across all 5 reps.</b> €1.8M open, 83% of Acq stalled. Each rep brings every 60d+ deal to a 1:1 with advance-or-close-lost decision required.</li><li><b>Lisa Clay is the asset to protect.</b> 32d cycle, 20% CW — strongest selling profile in UKI. Her stalled book isn't a skill gap. Give her air-cover to clean up rather than push for new wins.</li><li><b>Sally Jeavons had 13 wins in 2025 — what changed?</b> 41% CW historically with 36d cycle is real selling. Zero 2026 closures despite being still active is unusual. Investigate before drawing performance conclusions.</li><li><b>Jessica's pattern is structural.</b> 10% CW across 81 decisions over 2 years. Not a 2026 hiccup. Real qualification framework needed (MEDDIC or similar).</li><li><b>Investigate Rachael's book.</b> 19% CW with €469K stalled. Recent 2025 wins prove she can close. Diagnose what's stalling the 2026 pipe.</li><li><b>Millicent's 8% CW is the lowest credible rate in UKI.</b> 1 win YTD on 38 total decisions. Coaching priority alongside Jessica.</li></ul>
   </div>
 </div>
 
@@ -315,115 +337,115 @@
   <div class="region-head"><h3>FRABEL</h3><span class="ct">7 sellers (2 SM)</span><span class="avg">avg €24K</span><span class="tot">€167K won · €1.86M open (270 opps) · 82% Acq stalled</span></div>
   <div class="cards">
     <div class="card">
-      <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span>
+      <span class="pill green">Closing strong</span>
       <p class="name">Thibault Fosset <span class="sm-tag">SM</span></p><p class="role">SM · FRABEL South</p>
       <div class="stats">
-        <div><span class="v">€56K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€56K · 4W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€8K (1 opp)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">1</span><span class="l">Acq moving</span></div>
         <div><span class="v">0 (0%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">192d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">92d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">33%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s2" style="flex: 1;"></div></div></div>
-      <div class="note">192d cycle, 100% CW — carry-over deals from 2025 closed in 2026 with no in-flight discipline.</div>
+      <div class="note">92d cycle, 33% CW from 45 decisions — strong SM selling motion. Minimal carry-pipe.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
       <p class="name">Laure Thery <span class="sm-tag">SM</span></p><p class="role">SM · FRABEL North</p>
       <div class="stats">
-        <div><span class="v">€46K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€46K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€345K (45 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">7</span><span class="l">Acq moving</span></div>
         <div><span class="v red">37 (84%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">239d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">86%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">168d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">15%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 4;">4</div><div class="seg warm" style="flex: 3;">3</div><div class="seg dead" style="flex: 38;">38</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 12;">12</div><div class="seg s3" style="flex: 5;">5</div></div></div>
-      <div class="note">239d cycle, 86% CW — closing 8-month-old deals at high rate. 84% of Acq pipe stalled.</div>
+      <div class="note">168d cycle, 15% CW. Real selling but 84% of pipe stalled — needs major triage.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Vianney Elie</p><p class="role">AE · FRABEL South</p>
       <div class="stats">
-        <div><span class="v">€36K · 2W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€36K · 2W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€344K (53 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">6</span><span class="l">Acq moving</span></div>
         <div><span class="v red">47 (89%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">240d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">368d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">8%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 4;">4</div><div class="seg dead" style="flex: 43;">43</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 22;">22</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">240d cycle. 89% Acq stalled — book is frozen.</div>
+      <div class="note">368d cycle, 8% CW — closing year-old deals at low rate. Book is frozen and aging.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Chloe Espejo</p><p class="role">AE · FRABEL North</p>
       <div class="stats">
-        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€349K (54 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">9</span><span class="l">Acq moving</span></div>
         <div><span class="v red">43 (83%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">111d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">66d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">13%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 8;">8</div><div class="seg warm" style="flex: 2;">2</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 43;">43</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 24;">24</div><div class="seg s2" style="flex: 24;">24</div><div class="seg s3" style="flex: 6;">6</div></div></div>
-      <div class="note">111d cycle, 100% CW from 1 win — too small to read. 83% stalled is the real number.</div>
+      <div class="note">66d cycle, 13% CW. 83% of pipe stalled.</div>
     </div>
     <div class="card">
       <span class="pill gray">Data event</span>
       <p class="name">Thanh Dinh Tran</p><p class="role">AE · FRABEL North</p>
       <div class="stats">
-        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€12K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€318K (43 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">10</span><span class="l">Acq moving</span></div>
         <div><span class="v red">33 (77%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">90d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">33%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">128d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">4%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 3;">3</div><div class="seg warm" style="flex: 7;">7</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 28;">28</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 25;">25</div><div class="seg s3" style="flex: 1;"></div></div></div>
-      <div class="note">33% CW reflects bulk-loaded Jan opps. Data audit before verdict.</div>
+      <div class="note">128d cycle, 4% CW. Pre-cleanup numbers were better — the bulk-loaded Jan opps drag the rate. Audit needed.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Edouard Lehu</p><p class="role">AE · FRABEL North</p>
       <div class="stats">
-        <div><span class="v">€5K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€5K · 1W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€252K (42 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">10</span><span class="l">Acq moving</span></div>
         <div><span class="v red">31 (74%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">18d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">50%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">356d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">5%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 8;">8</div><div class="seg dead" style="flex: 23;">23</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 27;">27</div><div class="seg s2" style="flex: 14;">14</div><div class="seg s3" style="flex: 1;"></div></div></div>
-      <div class="note">18d cycle, 50% CW from n=2. Slow start with €252K stalled.</div>
+      <div class="note">356d cycle, 5% CW. Carrying 2024-25 deals at low conversion.</div>
     </div>
     <div class="card">
       <span class="pill gray">Pre-revenue</span>
       <p class="name">Mathilde Sempéré</p><p class="role">AE · FRABEL South</p>
       <div class="stats">
-        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€0K · 0W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€240K (32 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">2</span><span class="l">Acq moving</span></div>
         <div><span class="v red">16 (89%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">—</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">—</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">—</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">0%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 2;">2</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 27;">27</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 11;">11</div><div class="seg s2" style="flex: 17;">17</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">No wins yet. Confirm ramp status.</div>
+      <div class="note">0% CW with no wins yet. Confirm ramp / role.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Largest book in EMEA (270 open opps) and the longest cycle times. The team is sitting on years of accumulated pipe.</p>
-    <ul><li><b>Pipe hygiene is the priority intervention.</b> €1.86M open with 82% NP stalled and average cycle times of 200-240 days. The SMs need to lead a quarterly pipe-cleanse — every deal 90d+ in stage gets advance-or-close-lost.</li><li><b>Both SMs are closing well but logging poorly.</b> Laure 86% CW on 7 decisions, Thibault 100% on 4 — credible numbers. Carry-over from 2025 explains long cycles, not weak selling. Reset the funnel discipline standard for the team.</li><li><b>Audit Thanh Dinh Tran's January data event.</b> 33% CW with 55 hygiene losses. Numbers are skewed by bulk-loaded opps. Don't read this as performance until the data is cleaned.</li><li><b>Chloe and Edouard are early-tenure or stalled.</b> €600K open between them, 2 wins YTD. Either they're ramping (and need different KPIs) or the territories need rebalancing.</li><li><b>Mathilde Sempéré: 32 open opps, 0 wins.</b> Pure ramp signal. Define a 90-day milestone before applying any performance read.</li></ul>
+    <p class="analysis-head">Largest book in EMEA, longest cycle times, and the lowest acquisition close-won rates. The team is drowning in old pipe.</p>
+    <ul><li><b>Pipe hygiene is the priority — the whole team is underwater.</b> €1.86M open with 82% Acq stalled. Cycle times of 200-370 days. SMs must lead a quarterly pipe-cleanse — every deal 90d+ in stage gets advance-or-close-lost.</li><li><b>Thibault Fosset is the SM benchmark.</b> 33% CW from 45 decisions is strong credible selling. He should be coaching Laure on pipe management, not the other way around.</li><li><b>Vianney's 368-day cycle and 8% CW is alarming.</b> He's not failing to close; he's failing to qualify or kill. Lowest sustained CW among credible FRABEL sellers.</li><li><b>Audit Thanh Dinh Tran's January data event.</b> 108 losses against 6 wins is dominated by bulk-loaded cleanup. Don't read his 4% in isolation — separate genuine 2026 deals before judging.</li><li><b>Edouard and Chloe show similar patterns.</b> 5-13% CW with stalled pipes. Coaching candidates for Q3 with structured pipe-review cadence.</li><li><b>Mathilde: no 2-year history.</b> True ramp signal. Define a 90-day milestone before applying any performance read.</li></ul>
   </div>
 </div>
 
@@ -431,85 +453,85 @@
   <div class="region-head"><h3>Mediterranean</h3><span class="ct">5 sellers</span><span class="avg">avg €27K</span><span class="tot">€135K won · €1.01M open (253 opps) · 70% Acq stalled</span></div>
   <div class="cards">
     <div class="card">
-      <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
+      <span class="pill green">Closing strong</span><span class="pill red">Stalled pipe</span>
       <p class="name">Stefania Del Valle</p><p class="role">AE · Mediterranean</p>
       <div class="stats">
-        <div><span class="v">€43K · 12W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€43K · 12W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€115K (35 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">5</span><span class="l">Acq moving</span></div>
         <div><span class="v red">23 (82%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">137d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">86%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">119d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">45%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 10;">10</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 22;">22</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 9;">9</div></div></div>
-      <div class="note">137d cycle, 86% CW on 14 decisions — most credible volume seller in EMEA.</div>
+      <div class="note">119d cycle, 45% CW — highest credible CW in EMEA. Highest-volume real seller in EMEA.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
       <p class="name">Borja Sentis</p><p class="role">AE · Mediterranean</p>
       <div class="stats">
-        <div><span class="v">€29K · 9W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€29K · 9W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€128K (31 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">9</span><span class="l">Acq moving</span></div>
         <div><span class="v red">21 (70%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">24d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">75%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">46d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">20%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 7;">7</div><div class="seg warm" style="flex: 3;">3</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 18;">18</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 18;">18</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 4;">4</div></div></div>
-      <div class="note">24d cycle, 75% CW — healthiest dynamics in Med.</div>
+      <div class="note">46d cycle, 20% CW. Healthy dynamics — 27 wins across 2 years.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Massimiliano Viotti</p><p class="role">AE · Italy</p>
       <div class="stats">
-        <div><span class="v">€28K · 7W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€28K · 7W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€199K (42 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">8</span><span class="l">Acq moving</span></div>
         <div><span class="v red">33 (80%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">137d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">47%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">108d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">11%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 2;">2</div><div class="seg warm" style="flex: 6;">6</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 29;">29</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 27;">27</div><div class="seg s2" style="flex: 10;">10</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 2;">2</div></div></div>
-      <div class="note">137d cycle, 47% CW from 15 decisions — real conversion struggle. Italy pattern.</div>
+      <div class="note">108d cycle, 11% CW. Real conversion struggle — 114 losses across 2 years.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
       <p class="name">Alessandro Schillaci</p><p class="role">AE · Italy</p>
       <div class="stats">
-        <div><span class="v">€22K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€22K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€422K (110 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">28</span><span class="l">Acq moving</span></div>
         <div><span class="v red">72 (72%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">104d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">83%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">90d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">14%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 9;">9</div><div class="seg warm" style="flex: 26;">26</div><div class="seg stale" style="flex: 6;">6</div><div class="seg dead" style="flex: 69;">69</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 61;">61</div><div class="seg s2" style="flex: 35;">35</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s4" style="flex: 5;">5</div><div class="seg s5" style="flex: 7;">7</div></div></div>
-      <div class="note">104d cycle, 83% CW — credible selling but biggest stalled book in EMEA.</div>
+      <div class="note">90d cycle, 14% CW. Wins are real but book is choked with old opps. Inventory problem, not skill gap.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing well</span><span class="pill amber">Logging late</span>
       <p class="name">Guillermo Pinet</p><p class="role">AE · Mediterranean</p>
       <div class="stats">
-        <div><span class="v">€13K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€13K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€143K (35 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">20</span><span class="l">Acq moving</span></div>
         <div><span class="v red">15 (43%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">28d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">83%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">84d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">10%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 12;">12</div><div class="seg warm" style="flex: 8;">8</div><div class="seg stale" style="flex: 12;">12</div><div class="seg dead" style="flex: 3;">3</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 16;">16</div><div class="seg s3" style="flex: 2;">2</div></div></div>
-      <div class="note">28d cycle, 83% CW — short cycle suspect. Logging-late on 2026 wins.</div>
+      <div class="note">84d cycle, 10% CW. Logging-late on 2026 wins inflates appearance.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Strongest closing region per AE — but Italy is a sub-region that needs its own diagnosis.</p>
-    <ul><li><b>Stefania is the highest-impact seller in EMEA.</b> 12 wins, 86% CW from 14 decisions — most data-rich, most credible. Protect her time, get her stalled book triaged so she can scale further.</li><li><b>Schillaci is misclassified.</b> 110 open opps with 83% CW from real decisions = his selling works but his book is unmanageable. He needs SDR support or territory split, not coaching.</li><li><b>Massimiliano needs qualification coaching.</b> 47% CW from 15 decisions is genuinely low. Combined with 33 stalled, this is a real skill gap. Pair him with Stefania for shadowing.</li><li><b>Italy operates differently from Spain/Portugal.</b> Both Italian AEs (Schillaci, Viotti) carry 2-3x the open pipe of their Iberian peers with lower yield. Worth a structural review — sub-territory definition, lead routing, or deal qualification standards.</li><li><b>Guillermo's late-logging masks his real numbers.</b> 28d cycle is suspect. Don't celebrate or punish based on his current metrics until logging discipline is fixed.</li></ul>
+    <p class="analysis-head">Stefania is the headline — 45% close-won rate is the highest credible rate in EMEA.</p>
+    <ul><li><b>Stefania Del Valle is the strongest credible seller in EMEA.</b> 45% CW with 47 wins on a 104-opp total book. Healthy cycle, healthy pipeline, real volume. Protect her time, triage her stalled book.</li><li><b>Schillaci's 14% CW is the honest read.</b> 32 wins, 90 losses, 110 still open. He's a real seller but his book is choked with aging inventory. Needs SDR support or territory split — not a coaching conversation.</li><li><b>Massimiliano needs structured qualification coaching.</b> 11% CW with 114 losses across 2 years is a real pattern, not noise. Pair with Stefania or Borja for shadowing.</li><li><b>Italy operates differently from Iberia.</b> Both Italian AEs carry 2-3x the open pipe of Spanish/Portuguese peers. Worth a structural review — sub-territory definition, lead routing, or deal qualification standards.</li><li><b>Borja is the second-strongest credible seller.</b> 20% CW, 46d cycle. Solid template alongside Stefania.</li></ul>
   </div>
 </div>
 
@@ -520,52 +542,52 @@
       <span class="pill green">Closing strong</span><span class="pill amber">Logging late</span><span class="pill red">Stalled pipe</span>
       <p class="name">Jakub Orłów <span class="sm-tag">SM</span></p><p class="role">SM · Expansion</p>
       <div class="stats">
-        <div><span class="v">€68K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€68K · 6W<span class="arr-up">▲</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€262K (54 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">0</span><span class="l">Acq moving</span></div>
         <div><span class="v red">42 (100%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">−5d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">34d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">29%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 53;">53</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 20;">20</div><div class="seg s3" style="flex: 25;">25</div></div></div>
-      <div class="note">−5d avg cycle means CloseDate is BEFORE CreatedDate on average. Opps entered retroactively. Severe data integrity issue.</div>
+      <div class="note">34d cycle, 29% CW (combined view). Better than 2026-only suggested but logging-late pattern is real.</div>
     </div>
     <div class="card">
       <span class="pill green">Closing well</span><span class="pill red">Stalled pipe</span>
       <p class="name">Martin Polák</p><p class="role">AE · CEE</p>
       <div class="stats">
-        <div><span class="v">€27K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€27K · 5W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€453K (59 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">4</span><span class="l">Acq moving</span></div>
         <div><span class="v red">55 (93%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">12d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">56%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">82d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">12%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 4;">4</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 54;">54</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 25;">25</div><div class="seg s2" style="flex: 21;">21</div><div class="seg s3" style="flex: 13;">13</div></div></div>
-      <div class="note">12d cycle, 56% CW from 9 decisions — credible. 93% of Acq pipe stalled.</div>
+      <div class="note">82d cycle, 12% CW. Credible profile but 93% Acq stalled is the urgent issue.</div>
     </div>
     <div class="card">
       <span class="pill red">Stalled pipe</span>
       <p class="name">Damian Stachowiak</p><p class="role">AE · CEE</p>
       <div class="stats">
-        <div><span class="v">€15K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won</span></div>
+        <div><span class="v">€15K · 4W<span class="arr-dn">▼</span></span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€286K (55 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">17</span><span class="l">Acq moving</span></div>
         <div><span class="v red">36 (68%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">8d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">100%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">13d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">21%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 19;">19</div><div class="seg stale" style="flex: 29;">29</div><div class="seg dead" style="flex: 7;">7</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 31;">31</div><div class="seg s2" style="flex: 7;">7</div><div class="seg s3" style="flex: 17;">17</div></div></div>
-      <div class="note">8d cycle, 100% CW from n=4 — likely also late-logging. 68% stalled.</div>
+      <div class="note">13d cycle, 21% CW. Mixed signals — some real wins but short cycle suggests partial late-logging.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Strongest yield per seller in EMEA, but the data integrity problem is severe. Numbers cannot be trusted at face value.</p>
-    <ul><li><b>Jakub's negative cycle time is a data integrity flag, not selling skill.</b> Opps are being entered AFTER the close date. This needs immediate process intervention — RevOps should require opp creation on first qualified meeting, validated by audit.</li><li><b>Martin Polák is the only credible seller in the region.</b> 12d cycle, 56% CW from 9 decisions — real selling. 93% of his Acq pipe stalled is the urgent issue. Stuck-deal review every 2 weeks.</li><li><b>Damian's data is suspect.</b> 8d cycle with 100% CW pattern-matches Jakub's late-logging. Worth confirming before drawing performance conclusions.</li><li><b>Region needs a hygiene-first mandate.</b> €1M open across 3 sellers with 86% stalled. Until logging happens at qualification rather than at close, every metric here is unreliable.</li></ul>
+    <p class="analysis-head">Strongest yield per seller in EMEA but pipe hygiene is the biggest issue, not selling skill.</p>
+    <ul><li><b>Jakub's 29% CW is real selling, but the data integrity caveat stands.</b> Combined view shows credible CW. Still, the −5d 2026-only cycle and 0 Acq moving signal he's not modeling discipline. Force opp creation at first qualified meeting.</li><li><b>Martin Polák is the cleanest credible seller in CEE.</b> 82d cycle, 12% CW — plausible. 93% of his Acq pipe stalled is the urgent issue. Stuck-deal review every 2 weeks.</li><li><b>Damian's profile is mixed.</b> 21% CW is reasonable but 13d cycle with all green-strip aging suggests opps are entered late in process. Worth investigating his funnel discipline.</li><li><b>Region needs a hygiene-first mandate.</b> €1M open across 3 sellers with 86% stalled. Triage the stalled pipe before adding new opportunities.</li></ul>
   </div>
 </div>
 
@@ -576,22 +598,22 @@
       <span class="pill green">Closing strong</span><span class="pill red">Stalled pipe</span>
       <p class="name">Raimond Ghurahoo</p><p class="role">AE · Nordnet</p>
       <div class="stats">
-        <div><span class="v">€51K · 7W</span><span class="l">Closed won</span></div>
+        <div><span class="v">€51K · 7W</span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€365K (40 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v">9</span><span class="l">Acq moving</span></div>
         <div><span class="v red">31 (78%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">112d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">50%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">94d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">17%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 4;">4</div><div class="seg stale" style="flex: 3;">3</div><div class="seg dead" style="flex: 28;">28</div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 18;">18</div><div class="seg s2" style="flex: 12;">12</div><div class="seg s3" style="flex: 9;">9</div><div class="seg s4" style="flex: 1;"></div></div></div>
-      <div class="note">112d cycle, 50% CW from 14 decisions — most rigorous data integrity in EMEA. 78% stalled.</div>
+      <div class="note">94d cycle, 17% CW. Credible selling and credible data. 78% stalled is the urgent issue.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Solo region — Raimond's data is the cleanest in EMEA. Use it as a baseline.</p>
-    <ul><li><b>Raimond is the EMEA reference seller for data integrity.</b> 112d cycle, 50% CW from 14 decisions — no late-logging pattern, no retroactive creation. His numbers should be trusted at face value.</li><li><b>50% CW is the real EMEA conversion benchmark.</b> Most other 'high CW' sellers are inflated by logging artifacts. Raimond's number is what genuine selling looks like in this market. Don't read it as underperformance.</li><li><b>78% stalled needs pipeline triage support.</b> Solo region — no peer to share load with. Provide SDR or RevOps deal-review support to clear the stalled €365K.</li><li><b>Consider expanding coverage.</b> If €51K won at 50% CW from one seller is real, additional headcount in Nordnet may yield disproportionate H2 returns.</li></ul>
+    <p class="analysis-head">Solo region — Raimond's data integrity is reliable. Use it as a baseline.</p>
+    <ul><li><b>Raimond's 17% CW is the honest single-seller benchmark.</b> 25 wins, 79 losses across 2 years, 94-day cycle. No logging artifacts. This is what real selling in a tough market looks like.</li><li><b>78% stalled needs pipeline triage support.</b> Solo region — no peer to share load with. Provide SDR or RevOps deal-review support to clear the stalled €365K.</li><li><b>Consider expanding coverage.</b> If €51K won YTD at credible 17% CW from one seller is real, additional headcount in Nordnet may yield disproportionate H2 returns.</li></ul>
   </div>
 </div>
 
@@ -602,31 +624,31 @@
       <span class="pill green">Closing strong · clean pipe</span><span class="pill amber">Logging late</span>
       <p class="name">Yusuf Ozinan</p><p class="role">AE · Turkey</p>
       <div class="stats">
-        <div><span class="v">€80K · 9W</span><span class="l">Closed won</span></div>
+        <div><span class="v">€80K · 9W</span><span class="l">Closed won (2026)</span></div>
         <div><span class="v">€207K (35 opps)</span><span class="l">Open pipe</span></div>
         <div><span class="v green">15</span><span class="l">Acq moving</span></div>
         <div><span class="v">2 (12%)</span><span class="l">Acq stalled</span></div>
-        <div><span class="v">22d</span><span class="l">Avg cycle</span></div>
-        <div><span class="v">82%</span><span class="l">Close-won rate</span></div>
+        <div><span class="v">25d</span><span class="l">Avg cycle (25+26)</span></div>
+        <div><span class="v">21%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 5;">5</div><div class="seg warm" style="flex: 27;">27</div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 1;"></div></div></div>
       <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 1;"></div><div class="seg s2" style="flex: 32;">32</div><div class="seg s3" style="flex: 1;"></div><div class="seg s5" style="flex: 1;"></div></div></div>
-      <div class="note">22d cycle, 82% CW. Likely distributor channel, not direct selling.</div>
+      <div class="note">25d cycle, 21% CW. Real numbers from 12 closures. Likely distributor channel.</div>
     </div>
   </div>
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
-    <p class="analysis-head">Cleanest pipe in EMEA — but the metrics suggest this is a different motion than direct selling.</p>
-    <ul><li><b>Don't apply EMEA-wide expectations to Yusuf.</b> 22d cycle and 12% stalled rate are unmatched anywhere in the region. Most likely explanation: distributor or channel-led motion, not direct AE selling.</li><li><b>Validate the channel structure before scaling.</b> If Yusuf is closing through partners, the unit economics, margin profile, and replicability are fundamentally different. Worth a structural review with finance.</li><li><b>Late-logging flag is the only data concern.</b> 75% of his 2026 NP wins logged within 7d of close. Probably an artifact of channel motion (deals visible only at signature), but worth confirming.</li><li><b>Turkey may be the H2 expansion opportunity.</b> €80K closed by one seller with 82% CW — if the motion is repeatable through partners, this is a scaling case worth modelling.</li></ul>
+    <p class="analysis-head">Cleanest pipe in EMEA — but the metrics suggest a different motion than direct selling.</p>
+    <ul><li><b>Don't apply EMEA-wide expectations to Yusuf.</b> 25d cycle and 12% stalled rate are unmatched anywhere in the region. Likely distributor or channel-led motion, not direct AE selling.</li><li><b>Validate the channel structure before scaling.</b> If Yusuf is closing through partners, the unit economics and margin profile are fundamentally different. Worth a structural review with finance.</li><li><b>Turkey may be the H2 expansion opportunity.</b> €80K closed at 21% CW from one seller — if motion is repeatable through partners, this is a scaling case worth modelling.</li></ul>
   </div>
 </div>
 
 <footer>
-  Source: Salesforce, May 11, 2026. 1,688 opportunities across 28 active EMEA AE/SM. Currency converted to EUR at mid-market rates (not finance-grade).
+  Source: Salesforce, May 11, 2026. Active sellers only (Owner.IsActive = true). Closed won and open pipe figures cover 2026 YTD. Avg cycle and close-won rate use combined 2025+2026 closures plus current open opps. Currency converted to EUR at mid-market rates (not finance-grade).
   <br><br>
-  <b>Acquisition (Acq)</b> = New Practice + Reactivate Practice opportunity types. <b>Acq stalled</b> = open Acq opportunity with no stage change in 60+ days. For reference, 90% of NP wins close in under 35 days. The aging strip splits ALL open opps (including Up-Selling) into 0–30d (fresh), 30–60d (warming), 60–90d (stalled), 90d+ (severely stalled). <b>Stage</b> bar shows Consult → Discover → Close → Order Form Sent → Order Form Viewed.
+  <b>Acquisition (Acq)</b> = New Practice + Reactivate Practice opportunity types. <b>Acq stalled</b> = open Acq opportunity with no stage change in 60+ days. For reference, 90% of NP wins close in under 35 days. The aging strip splits ALL open opps into 0–30d (fresh), 30–60d (warming), 60–90d (stalled), 90d+ (severely stalled). <b>Stage</b> bar shows Consult → Discover → Close → Order Form Sent → Order Form Viewed.
   <br><br>
-  <b>Avg cycle</b> = mean days between CreatedDate and CloseDate for 2026 closed-won opportunities. <b>Close-won rate</b> = won / (won + active losses) where active losses are deals lost within 120 days of creation. Hygiene losses (deals lost &gt;120 days after creation, the Q1 pipeline cleanup) are excluded from both metrics so they reflect 2026 selling activity, not historical bookkeeping. Suspiciously short cycles (under 10d) combined with 100% close-won rates indicate retroactive opportunity creation — Sascha Derichs, Jakub Orłów, Damian Stachowiak, and Rachael Penney all show this pattern.
+  <b>Avg cycle</b> = mean days between CreatedDate and CloseDate for combined 2025+2026 closed-won opportunities. <b>Close-won rate</b> = won / (won + lost + open) across all the seller's opportunities. Open opportunities count against the rate because they haven't converted yet — when they do close, they shift the rate accordingly. This makes pipe hygiene (advancing or killing dead deals) directly visible in the seller's number. Suspiciously short cycles (under 10d) combined with high close-won rates indicate retroactive opportunity creation — chronic for Sascha Derichs.
 </footer>
 
 </div>
