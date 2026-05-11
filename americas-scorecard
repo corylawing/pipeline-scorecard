@@ -82,15 +82,24 @@
     .region { break-inside: avoid; }
   }
 
-.nav { display: flex; gap: 6px; margin: 0 0 16px; flex-wrap: wrap; }
-.nav a, .nav span.active { display: inline-block; padding: 7px 12px; font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 5px; border: 1px solid #e1e4eb; background: #fff; color: #1a1d2e; transition: all 0.15s; letter-spacing: 0.02em; }
-.nav a:hover { background: #f0f5ff; border-color: #3b82f6; color: #1e40af; }
-.nav span.active { background: #1a1d2e; color: #fff; border-color: #1a1d2e; cursor: default; }
-.nav .sep { color: #c0c4d0; padding: 7px 0; font-size: 12px; }
+/* === Top nav bar === */
+.topbar { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e1e4eb; padding: 14px 24px; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
+.topbar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1a1d2e 0%, #1e40af 50%, #3b82f6 100%); }
+.nav { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; align-items: center; max-width: 1280px; margin: 0 auto; }
+.nav a, .nav span.active { display: inline-block; padding: 9px 18px; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 6px; border: 1px solid transparent; color: #66708a; letter-spacing: 0.02em; transition: all 0.18s ease; line-height: 1.2; }
+.nav a:hover { background: #eff4fe; color: #1e40af; border-color: #c7d7f5; }
+.nav span.active { background: #1a1d2e; color: #fff; border-color: #1a1d2e; cursor: default; box-shadow: 0 2px 6px rgba(26, 29, 46, 0.2); }
+.nav .sep { display: inline-block; width: 1px; height: 22px; background: #d6dae5; margin: 0 8px; font-size: 0; color: transparent; align-self: center; }
+/* === Polish === */
+.card { transition: box-shadow 0.18s ease, transform 0.18s ease; }
+.card:hover { box-shadow: 0 4px 12px rgba(26, 29, 46, 0.08); transform: translateY(-1px); }
+h1 { letter-spacing: -0.01em; }
+.subtitle { letter-spacing: 0.01em; }
+.evt-container { max-width: 1280px; margin: 0 auto; padding: 24px; }
 </style>
 </head>
 <body>
-<div class="nav"><a href="emea-scorecard-q2-2026.html">EMEA Pipeline</a><a href="event-attribution-emea-q2-2026.html">EMEA Events</a><span class="sep">·</span><span class="active">AMERICAS Pipeline</span><a href="event-attribution-americas-q2-2026.html">AMERICAS Events</a></div>
+<header class="topbar"><div class="nav"><a href="index.html">EMEA Pipeline</a><a href="event-attribution.html">EMEA Event Coverage</a><span class="sep"></span><span class="active">AMERICAS Pipeline</span><a href="nam-events-attribution.html">AMERICAS Event Coverage</a></div></header>
 <div class="container">
 
 <h1>AMERICAS AE &amp; SM Pipeline Scorecard<span class="sub">QBR Q2 2026 · Cory Lawing, Revenue Operations · Data as of May 11, 2026 · Acquisition = New Practice + Reactivate Practice</span></h1>
@@ -122,8 +131,8 @@
   </div>
   <div class="legend-row">
     <span class="lbl">Pipe by stage</span>
-    <span><span class="swatch" style="background: #85B7EB;"></span>Consult</span>
-    <span><span class="swatch" style="background: #378ADD;"></span>Discover</span>
+    <span><span class="swatch" style="background: #85B7EB;"></span>Discover</span>
+    <span><span class="swatch" style="background: #378ADD;"></span>Consult</span>
     <span><span class="swatch" style="background: #185FA5;"></span>Close</span>
     <span><span class="swatch" style="background: #0C447C;"></span>OF Sent</span>
     <span><span class="swatch" style="background: #042C53;"></span>OF Viewed</span>
@@ -145,7 +154,7 @@
         <div><span class="v">25%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg warm" style="flex: 6;">6</div><div class="seg dead" style="flex: 39;">39</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 29;">29</div><div class="seg s3" style="flex: 7;">7</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 29;">29</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 7;">7</div><div class="seg s5" style="flex: 1;"></div></div></div>
       <div class="note">127d cycle, 25% CW — strongest credible profile in East. 24 wins across 2 years. 85% Acq stalled is the urgent issue.</div>
     </div>
     <div class="card">
@@ -160,7 +169,7 @@
         <div><span class="v">19%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 3;">3</div><div class="seg warm" style="flex: 15;">15</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 29;">29</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 18;">18</div><div class="seg s2" style="flex: 28;">28</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 18;">18</div><div class="seg s3" style="flex: 3;">3</div><div class="seg s4" style="flex: 1;"></div><div class="seg s5" style="flex: 2;">2</div></div></div>
       <div class="note">115d cycle, 19% CW. 15 wins across 2 years — credible.</div>
     </div>
     <div class="card">
@@ -175,7 +184,7 @@
         <div><span class="v">24%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 4;">4</div><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 45;">45</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 4;">4</div><div class="seg s2" style="flex: 42;">42</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 4;">4</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 42;">42</div><div class="seg s2" style="flex: 4;">4</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 4;">4</div></div></div>
       <div class="note">227d cycle, 24% CW. 16 wins, slow but real cycle.</div>
     </div>
     <div class="card">
@@ -190,7 +199,7 @@
         <div><span class="v">6%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 6;">6</div><div class="seg warm" style="flex: 3;">3</div><div class="seg dead" style="flex: 49;">49</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 25;">25</div><div class="seg s2" style="flex: 28;">28</div><div class="seg s3" style="flex: 4;">4</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 25;">25</div><div class="seg s3" style="flex: 4;">4</div><div class="seg s5" style="flex: 1;"></div></div></div>
       <div class="note">196d cycle, 6% CW. As SM, this is the lowest credible profile in East — 91% pipe stalled.</div>
     </div>
     <div class="card">
@@ -205,7 +214,7 @@
         <div><span class="v">11%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 4;">4</div><div class="seg stale" style="flex: 2;">2</div><div class="seg dead" style="flex: 25;">25</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 21;">21</div><div class="seg s3" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 21;">21</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 1;"></div></div></div>
       <div class="note">77d cycle, 11% CW. Modest selling on small history. 87% Acq stalled.</div>
     </div>
     <div class="card">
@@ -235,7 +244,7 @@
         <div><span class="v">9%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 7;">7</div><div class="seg dead" style="flex: 41;">41</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 35;">35</div><div class="seg s3" style="flex: 4;">4</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 35;">35</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 4;">4</div><div class="seg s5" style="flex: 1;"></div></div></div>
       <div class="note">4d cycle, 9% CW. Short-cycle pattern across 2 years. $229K open with 98% stalled.</div>
     </div>
     <div class="card">
@@ -257,7 +266,7 @@
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
     <p class="analysis-head">Largest stalled pipe in AMERICAS (87%) combined with the weakest close-won rates in the region.</p>
-    <ul><li><b>Virginia, Megan, and Christina are the credible benchmarks.</b> 19-25% CW with healthy cycle times. Use Virginia (127d, 25%) as the East coaching template.</li><li><b>Matthew Miller is a serious concern.</b> As SM with 6% CW on 63 decisions, he's not modeling the discipline he should be coaching. RevOps mandate: SM funnel hygiene first, then cascade to AEs.</li><li><b>Force a stalled-pipe review for the 4 reps with 90%+ stalled.</b> Jim (98%), Christina (94%), James (94%), Matthew (91%). Advance-or-close-lost on each open opp 60+ days old.</li><li><b>Michelle and James need structured coaching.</b> 5-9% CW across 2 years is structural, not noise. Qualification framework + weekly pipe review.</li><li><b>Region-wide late-logging is endemic.</b> 5 of 8 sellers show under-10-day cycles. Pattern holds across 2 years of data — not a quarterly slip.</li></ul>
+    <ul><li><b>Virginia, Megan, and Christina are the credible benchmarks.</b> 19-25% CW with healthy cycle times. Use Virginia (127d, 25%) as the East coaching template.</li><li><b>Force a stalled-pipe review for the reps with 90%+ stalled.</b> Jim (98%), Christina (94%), James (94%). Advance-or-close-lost on each open opp 60+ days old.</li><li><b>Michelle and James need structured coaching.</b> 5-9% CW across 2 years is structural, not noise. Qualification framework + weekly pipe review.</li><li><b>Region-wide late-logging is endemic.</b> 5 of 8 sellers show under-10-day cycles. Pattern holds across 2 years of data — not a quarterly slip.</li></ul>
   </div>
 </div>
 
@@ -276,7 +285,7 @@
         <div><span class="v">17%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 2;">2</div><div class="seg stale" style="flex: 8;">8</div><div class="seg dead" style="flex: 20;">20</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 9;">9</div><div class="seg s2" style="flex: 17;">17</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 17;">17</div><div class="seg s2" style="flex: 9;">9</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 2;">2</div></div></div>
       <div class="note">17d cycle, 17% CW. Top revenue in Central but 100% Acq stalled.</div>
     </div>
     <div class="card">
@@ -291,7 +300,7 @@
         <div><span class="v">10%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 15;">15</div><div class="seg warm" style="flex: 10;">10</div><div class="seg stale" style="flex: 5;">5</div><div class="seg dead" style="flex: 31;">31</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 34;">34</div><div class="seg s2" style="flex: 13;">13</div><div class="seg s3" style="flex: 14;">14</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 13;">13</div><div class="seg s2" style="flex: 34;">34</div><div class="seg s3" style="flex: 14;">14</div></div></div>
       <div class="note">55d cycle, 10% CW. Most rigorous data integrity in Central — 232 total decisions tracked. Real selling, real conversion challenge.</div>
     </div>
     <div class="card">
@@ -306,7 +315,7 @@
         <div><span class="v">22%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 3;">3</div><div class="seg warm" style="flex: 5;">5</div><div class="seg stale" style="flex: 4;">4</div><div class="seg dead" style="flex: 35;">35</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 22;">22</div><div class="seg s2" style="flex: 23;">23</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 23;">23</div><div class="seg s2" style="flex: 22;">22</div><div class="seg s3" style="flex: 2;">2</div></div></div>
       <div class="note">135d cycle, 22% CW. 28 wins across 2 years. Strongest credible profile in Central.</div>
     </div>
     <div class="card">
@@ -321,7 +330,7 @@
         <div><span class="v">18%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg warm" style="flex: 9;">9</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 13;">13</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 7;">7</div><div class="seg s2" style="flex: 14;">14</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 14;">14</div><div class="seg s2" style="flex: 7;">7</div><div class="seg s3" style="flex: 2;">2</div><div class="seg s5" style="flex: 1;"></div></div></div>
       <div class="note">97d cycle, 18% CW. 21 wins — solid second-strongest in Central.</div>
     </div>
     <div class="card">
@@ -377,7 +386,7 @@
         <div><span class="v">17%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 1;"></div><div class="seg warm" style="flex: 13;">13</div><div class="seg stale" style="flex: 4;">4</div><div class="seg dead" style="flex: 25;">25</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 8;">8</div><div class="seg s2" style="flex: 33;">33</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 33;">33</div><div class="seg s2" style="flex: 8;">8</div><div class="seg s3" style="flex: 2;">2</div></div></div>
       <div class="note">36d cycle, 17% CW. 18 wins across 2 years.</div>
     </div>
     <div class="card">
@@ -392,7 +401,7 @@
         <div><span class="v">6%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg fresh" style="flex: 3;">3</div><div class="seg warm" style="flex: 16;">16</div><div class="seg stale" style="flex: 1;"></div><div class="seg dead" style="flex: 9;">9</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 7;">7</div><div class="seg s2" style="flex: 20;">20</div><div class="seg s3" style="flex: 2;">2</div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 20;">20</div><div class="seg s2" style="flex: 7;">7</div><div class="seg s3" style="flex: 2;">2</div></div></div>
       <div class="note">2d cycle, 6% CW. Chronic short-cycle pattern but healthiest stalled rate in West.</div>
     </div>
     <div class="card">
@@ -407,7 +416,7 @@
         <div><span class="v">7%</span><span class="l">Close-won rate</span></div>
       </div>
       <div class="strip"><div class="strip-label">By aging</div><div class="bar"><div class="seg warm" style="flex: 1;"></div><div class="seg stale" style="flex: 10;">10</div><div class="seg dead" style="flex: 35;">35</div></div></div>
-      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 8;">8</div><div class="seg s2" style="flex: 28;">28</div><div class="seg s3" style="flex: 9;">9</div><div class="seg s4" style="flex: 1;"></div></div></div>
+      <div class="strip"><div class="strip-label">By stage</div><div class="bar"><div class="seg s1" style="flex: 28;">28</div><div class="seg s2" style="flex: 8;">8</div><div class="seg s3" style="flex: 9;">9</div><div class="seg s4" style="flex: 1;"></div></div></div>
       <div class="note">111d cycle, 7% CW. Most credible cycle data in West but low conversion.</div>
     </div>
     <div class="card">
@@ -459,14 +468,14 @@
   <div class="analysis">
     <div class="analysis-lbl">Sales Excellence / RevOps notes for the SM</div>
     <p class="analysis-head">Lowest stalled rate in AMERICAS (55%). Smaller books, smaller deals, different motion than East/Central.</p>
-    <ul><li><b>Paul Wood is the West anchor.</b> 37% CW at 21-day cycle with 32 wins across 2 years — the strongest profile in West and one of the strongest in AMERICAS overall.</li><li><b>Damani Portin's data integrity is the most credible in West.</b> 111-day cycle is real. His 7% CW is what the West actually looks like at scale — Paul's higher rate may reflect easier territory.</li><li><b>Liam's $5K open pipe with 47 opps is a data anomaly.</b> Likely auto-created or bulk-loaded low-value records. Worth a data quality audit before drawing performance conclusions.</li><li><b>Sebastian is the H2 bet.</b> 55 opps, 0 stalled, all fresh — pipe is being built. Don't measure on closed won yet.</li><li><b>Greg's 50% CW is meaningful but small.</b> 4 decisions total. Confirm whether he carries quota or is primarily SM-managing.</li><li><b>Lower stalled rate may reflect smaller territories.</b> Different conversation than East/Central — focus on volume and qualification rather than hygiene cleanup.</li></ul>
+    <ul><li><b>Paul Wood is the West anchor.</b> 37% CW at 21-day cycle with 32 wins across 2 years — the strongest profile in West and one of the strongest in AMERICAS overall.</li><li><b>Damani Portin's data integrity is the most credible in West.</b> 111-day cycle is real. His 7% CW is what the West actually looks like at scale — Paul's higher rate may reflect easier territory.</li><li><b>Liam's $5K open pipe with 47 opps is a data anomaly.</b> Likely auto-created or bulk-loaded low-value records. Worth a data quality audit before drawing performance conclusions.</li><li><b>Sebastian is the H2 bet.</b> 55 opps, 0 stalled, all fresh — pipe is being built. Don't measure on closed won yet.</li><li><b>Lower stalled rate may reflect smaller territories.</b> Different conversation than East/Central — focus on volume and qualification rather than hygiene cleanup.</li></ul>
   </div>
 </div>
 
 <footer>
   Source: Salesforce, May 11, 2026. Active sellers only (Owner.IsActive = true). Closed won and open pipe figures cover 2026 YTD. Avg cycle and close-won rate use combined 2025+2026 closures plus current open opps. Currency converted to USD at mid-market rates (not finance-grade).
   <br><br>
-  <b>Acquisition (Acq)</b> = New Practice + Reactivate Practice opportunity types. <b>Acq stalled</b> = open Acq opportunity with no stage change in 60+ days. For reference, 90% of NP wins close in under 35 days. The aging strip splits ALL open opps into 0–30d (fresh), 30–60d (warming), 60–90d (stalled), 90d+ (severely stalled). <b>Stage</b> bar shows Consult → Discover → Close → Order Form Sent → Order Form Viewed.
+  <b>Acquisition (Acq)</b> = New Practice + Reactivate Practice opportunity types. <b>Acq stalled</b> = open Acq opportunity with no stage change in 60+ days. For reference, 90% of NP wins close in under 35 days. The aging strip splits ALL open opps into 0–30d (fresh), 30–60d (warming), 60–90d (stalled), 90d+ (severely stalled). <b>Stage</b> bar shows Discover → Consult → Close → Order Form Sent → Order Form Viewed.
   <br><br>
   <b>Avg cycle</b> = mean days between CreatedDate and CloseDate for combined 2025+2026 closed-won opportunities. <b>Close-won rate</b> = won / (won + lost + open) across all the seller's opportunities. Open opportunities count against the rate because they haven't converted yet — when they do close, they shift the rate accordingly. This makes pipe hygiene (advancing or killing dead deals) directly visible in the seller's number.
 </footer>
