@@ -96,9 +96,77 @@
 h1 { letter-spacing: -0.01em; }
 .subtitle { letter-spacing: 0.01em; }
 .evt-container { max-width: 1280px; margin: 0 auto; padding: 24px; }
+
+/* === Password gate === */
+body.pw-locked { overflow: hidden; }
+body.pw-locked > *:not(#pw-gate) { display: none !important; }
+#pw-gate { position: fixed; inset: 0; background: #FAFAF7; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif; }
+#pw-gate::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1a1d2e 0%, #1e40af 50%, #3b82f6 100%); }
+.pw-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px 32px; width: 100%; max-width: 400px; box-shadow: 0 4px 24px rgba(26,29,46,0.06); }
+.pw-header { text-align: center; margin-bottom: 26px; }
+.pw-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #1a1d2e 0%, #1e40af 100%); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: #FFFFFF; margin-bottom: 16px; }
+.pw-header h1 { font-size: 20px; font-weight: 600; color: #2C2C2A; margin: 0 0 4px; letter-spacing: -0.01em; }
+.pw-header p { font-size: 12px; color: #5F5E5A; margin: 0; letter-spacing: 0.02em; }
+.pw-form { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.pw-input-wrap { position: relative; }
+.pw-input-wrap input.pw-field { width: 100%; padding: 12px 44px 12px 14px; font-size: 14px; font-family: inherit; color: #2C2C2A; border: 1px solid #d6dae5; border-radius: 8px; background: #FAFAF7; transition: border-color 0.15s, background 0.15s, box-shadow 0.15s; }
+.pw-input-wrap input.pw-field:focus { outline: none; border-color: #1e40af; background: #FFFFFF; box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12); }
+.pw-hidden-user { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.pw-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: transparent; border: none; cursor: pointer; padding: 8px; color: #5F5E5A; display: flex; align-items: center; justify-content: center; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+.pw-toggle:hover { background: #F1EFE8; color: #2C2C2A; }
+.pw-toggle:focus-visible { outline: 2px solid #1e40af; outline-offset: 2px; }
+.pw-submit { width: 100%; padding: 12px; font-size: 14px; font-weight: 600; font-family: inherit; color: #FFFFFF; background: #1a1d2e; border: 1px solid #1a1d2e; border-radius: 8px; cursor: pointer; letter-spacing: 0.02em; transition: background 0.15s, transform 0.05s; margin-top: 4px; }
+.pw-submit:hover { background: #2a2d52; }
+.pw-submit:active { transform: translateY(1px); }
+.pw-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.pw-error { padding: 10px 12px; background: #FCEBEB; color: #A32D2D; border-radius: 6px; font-size: 12px; text-align: center; margin: 0; }
+.pw-error[hidden] { display: none; }
+.pw-hint { font-size: 11px; color: #888780; text-align: center; margin: 14px 0 0; letter-spacing: 0.02em; }
+@keyframes pw-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.pw-shake { animation: pw-shake 0.3s ease-in-out; }
+#pw-gate.pw-fading { opacity: 0; transition: opacity 0.2s ease; }
 </style>
 </head>
-<body>
+<body class="pw-locked">
+
+<div id="pw-gate">
+  <div class="pw-card">
+    <div class="pw-header">
+      <div class="pw-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+      <h1>Pipeline Scorecard</h1>
+      <p>QBR Q2 2026 · Revenue Operations</p>
+    </div>
+    <form id="pw-form" class="pw-form" autocomplete="on" action="#" method="post" novalidate>
+      <input type="text" name="username" value="revops" class="pw-hidden-user" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
+      <div class="pw-input-wrap">
+        <input type="password" id="pw-input" class="pw-field" name="password" placeholder="Enter password" autocomplete="current-password" required autofocus>
+        <button type="button" id="pw-toggle" class="pw-toggle" aria-label="Show password" aria-pressed="false">
+          <svg id="pw-eye-open" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <svg id="pw-eye-closed" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+        </button>
+      </div>
+      <button type="submit" class="pw-submit" id="pw-submit">Unlock</button>
+      <div id="pw-error" class="pw-error" hidden role="alert">Incorrect password. Try again.</div>
+    </form>
+    <p class="pw-hint">Your browser will offer to save this for next time.</p>
+  </div>
+</div>
+
+<script>
+// Early auth check — if already unlocked this session, remove the gate before paint.
+(function(){
+  try {
+    if (sessionStorage.getItem('pipeline-scorecard-auth') === 'true') {
+      document.body.classList.remove('pw-locked');
+      var g = document.getElementById('pw-gate');
+      if (g) g.remove();
+    }
+  } catch(e) {}
+})();
+</script>
+
 <header class="topbar"><div class="nav"><a href="index.html">EMEA Pipeline</a><span class="active">AMERICAS Pipeline</span></div></header>
 <div class="container">
 
@@ -486,5 +554,86 @@ h1 { letter-spacing: -0.01em; }
 </footer>
 
 </div>
+<script>
+// Password gate handler.
+// Storing only the SHA-256 hash of the password — plaintext never appears in source.
+// This is gatekeeping, not security: the page content is still client-side. Anyone with
+// View Source can read the scorecard data directly. The gate just blocks casual viewers.
+(function() {
+  var AUTH_KEY = 'pipeline-scorecard-auth';
+  var STORED_HASH = '72fe014c9c35fb3bb0eba5ba0b2cdc07f4307b6d8e5ee2d5a29735509e55a35d';
+
+  var gate = document.getElementById('pw-gate');
+  if (!gate) return; // Early-check script already removed it.
+
+  var form = document.getElementById('pw-form');
+  var input = document.getElementById('pw-input');
+  var toggle = document.getElementById('pw-toggle');
+  var eyeOpen = document.getElementById('pw-eye-open');
+  var eyeClosed = document.getElementById('pw-eye-closed');
+  var errorEl = document.getElementById('pw-error');
+  var submitBtn = document.getElementById('pw-submit');
+  var card = gate.querySelector('.pw-card');
+
+  async function sha256Hex(str) {
+    if (!window.crypto || !crypto.subtle) return null;
+    try {
+      var buf = new TextEncoder().encode(str);
+      var hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    } catch(e) { return null; }
+  }
+
+  toggle.addEventListener('click', function() {
+    var isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    toggle.setAttribute('aria-pressed', isPassword ? 'true' : 'false');
+    toggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    eyeOpen.style.display = isPassword ? 'none' : 'block';
+    eyeClosed.style.display = isPassword ? 'block' : 'none';
+    input.focus();
+  });
+
+  input.addEventListener('input', function() {
+    if (!errorEl.hidden) errorEl.hidden = true;
+  });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    var entered = input.value;
+    var enteredHash = await sha256Hex(entered);
+
+    if (enteredHash && enteredHash === STORED_HASH) {
+      try { sessionStorage.setItem(AUTH_KEY, 'true'); } catch(err) {}
+
+      // Trigger Credential Management API where supported (Chrome, Edge) so the
+      // browser/password manager gets an explicit signal to save these credentials.
+      if (window.PasswordCredential) {
+        try {
+          var cred = new PasswordCredential({
+            id: 'revops',
+            password: entered,
+            name: 'Pipeline Scorecard'
+          });
+          navigator.credentials.store(cred).catch(function(){});
+        } catch(err) {}
+      }
+
+      document.body.classList.remove('pw-locked');
+      gate.classList.add('pw-fading');
+      setTimeout(function() { gate.remove(); }, 200);
+    } else {
+      errorEl.hidden = false;
+      card.classList.remove('pw-shake');
+      void card.offsetWidth; // Force reflow to restart animation.
+      card.classList.add('pw-shake');
+      input.select();
+      submitBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
